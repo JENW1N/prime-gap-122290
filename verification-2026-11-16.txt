@@ -1,0 +1,20 @@
+Verification completed on November 16, 2026.
+
+Command run against the existing November 12 certificate package:
+python -u verify_gap_122290.py --left gap_122290_left.ecpp --right gap_122290_right.ecpp --jobs 8
+
+Observed output:
+Verified all 122,289 interior offsets
+2,180 distinct prime moduli, largest 32467
+W has 8,256 decimal digits
+SHA-256 of decimal W c9d6a61f28b4e3cdf3dfff5e0654dc67c4830ce88fcae25f2d148889f92ffdc8
+SHA-256 of decimal a 36f33fe72cdd7ac4bb59f8cf47e3927a3ba1d508571ae458ab2f1ad9e74daff8
+Proved a 8,262-digit endpoint prime in 647 ECPP steps
+Proved a 8,262-digit endpoint prime in 659 ECPP steps
+Proved consecutive primes at distance 122,290
+
+Process exit code: 0
+
+The current primegaps.cloudygo.com/merits.txt was fetched during this review. It contained 126,372 lines and no entry for gap 122290. FrontierShift still displayed fs-0428 as open. Public submission and acceptance remain unverified.
+
+A separate PARI/GP cross-check was started during this review and stopped after the complete Python verifier succeeded. No completed PARI/GP result is asserted by this audit.

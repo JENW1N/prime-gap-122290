@@ -1,0 +1,8 @@
+{
+  "input_sha256": "7bf9108dd245e8c33a7e73f950d4525cee1393214b4b122f9a3971a9f70f553b",
+  "tested": 57344,
+  "left_prps": 103,
+  "double_base2": [
+    530520
+  ]
+}
