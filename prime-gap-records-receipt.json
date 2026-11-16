@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-16",
+  "status": "accepted",
+  "gap": 122290,
+  "classification": "C?D",
+  "discoverer": "JKWHLKGH",
+  "authors": [
+    "Jensen Kohlmeyer",
+    "Will Howe",
+    "Liam Kruer",
+    "Grant Huffman"
+  ],
+  "record_date": "2026-11-12",
+  "merit": 6.4287,
+  "endpoint_digits": 8262,
+  "server_result": "Verified! (10.8s)",
+  "live_merits_entry": "122290 6.4287 JKWHLKGH",
+  "status_url": "https://primegaps.cloudygo.com/status",
+  "merits_url": "https://primegaps.cloudygo.com/merits.txt"
+}
