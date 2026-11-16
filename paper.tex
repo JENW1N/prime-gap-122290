@@ -1,0 +1,188 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[margin=1in]{geometry}
+\raggedbottom
+\usepackage{booktabs,longtable,fancyvrb}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\title[Consecutive primes at distance 122,290]{Consecutive primes at distance 122,290}
+\author{Will Howe}
+\email{howew@purdue.edu}
+\author{Grant Huffman}
+\email{huffma97@purdue.edu}
+\author{Jensen Kohlmeyer}
+\email{jenwin@purdue.edu}
+\author{Liam Kruer}
+\email{kruerl@purdue.edu}
+\date{November 16, 2026}
+\subjclass[2020]{Primary 11A41; Secondary 11Y11, 11Y55}
+\keywords{Prime gaps, covering congruences, primality certificates}
+\begin{document}
+\begin{abstract}
+We exhibit two consecutive primes whose difference is exactly $122\,290$.
+Both primes have $8\,262$ decimal digits. Every integer strictly between them
+has a prime divisor at most $32\,467$. We give the covering argument and the
+elliptic-curve criterion that certify the result. The proof is computer-assisted and uses finite arithmetic checks to establish
+endpoint primality and the compositeness of every interior integer.
+\end{abstract}
+\maketitle
+
+\section{The result and the covering argument}
+A prime gap of length $h$ is a pair of primes $p,p+h$ such that every integer
+between them is composite. We prove the following statement.
+
+\begin{theorem}\label{thm:main}
+Let $p$ be the integer written in Appendix~\ref{app:p}. Then $p$ and
+$p+122\,290$ are consecutive primes, each with $8\,262$ decimal digits.
+Moreover, every integer $n$ with $p<n<p+122\,290$ has a prime divisor at
+most $32\,467$.
+\end{theorem}
+
+The full residue table and the two primality chains form the embedded
+arithmetic appendix to this PDF. Their mathematical format is specified below.
+
+A covering congruence supplies one small divisor for each interior integer.
+
+\begin{lemma}\label{lem:cover}
+Let $h\ge2$, let $\mathcal Q$ be a finite set of primes, and choose a residue
+$b_q$ modulo each $q\in\mathcal Q$. Put $W=\prod_{q\in\mathcal Q}q$, and
+let $0\le a<W$ satisfy $a\equiv b_q\pmod q$ for every $q\in\mathcal Q$.
+Suppose that
+\[
+ \{1,\ldots,h-1\}\subseteq
+ \bigcup_{q\in\mathcal Q}\{j:j\equiv-b_q\pmod q\}.
+\]
+If $m\ge1$, $p=a+mW>\max\mathcal Q$, and $p,p+h$ are prime, then they are
+consecutive primes.
+\end{lemma}
+\begin{proof}
+For $1\le j<h$, choose $q\in\mathcal Q$ with $j\equiv-b_q\pmod q$.
+Since $p\equiv a\equiv b_q\pmod q$, we have $q\mid p+j$.
+The inequalities $1<q<p+j$ show that $p+j$ is composite.
+\end{proof}
+
+For the integer $p$ in Theorem~\ref{thm:main}, the residue table has
+$2\,180$ pairs $(q,b_q)$ and satisfies
+\[
+ b_q\equiv p\pmod q,\qquad b_q\not\equiv0,-122\,290\pmod q.
+\]
+Every $q$ is prime and $q\le32\,467$. The Chinese remainder construction is
+$p=a+530\,520W$, where $W=\prod q$, $0\le a<W$, and
+$a\equiv b_q\pmod q$. The integer $W$ has $8\,256$ decimal digits.
+
+To check the interior directly, start with $S=\{1,\ldots,122\,289\}$. For each prime
+$q\le B$, remove the offsets $j\equiv-p\pmod q$. The successive numbers
+of remaining offsets are
+\begin{center}
+\begin{tabular}{r r@{\qquad}r r}
+\toprule
+$B$ & Remaining & $B$ & Remaining\\
+\midrule
+$2$ & $61\,144$ & $14\,983$ & $818$\\
+$97$ & $14\,577$ & $19\,997$ & $126$\\
+$997$ & $8\,665$ & $24\,989$ & $26$\\
+$4\,999$ & $4\,673$ & $29\,989$ & $3$\\
+$9\,973$ & $2\,342$ & $32\,467$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus every interior integer has a proper prime divisor at most $32\,467$.
+
+\section{Endpoint primality and completion of the proof}
+We use the following form of the elliptic-curve primality criterion
+\cite{atkinmorain}. All group operations in the statement are performed
+modulo~$N$.
+
+\begin{lemma}\label{lem:ecpp}
+Let $N>3$ be coprime to $6$, and let
+$E:y^2=x^3+Ax+B$ satisfy $\gcd(4A^3+27B^2,N)=1$.
+Suppose that $r$ is prime, $r>(N^{1/4}+1)^2$, and an affine point $R$ on $E$
+satisfies $[r]R=O$. If the computation uses only denominators coprime to $N$,
+then $N$ is prime.
+\end{lemma}
+\begin{proof}
+If $N$ were composite, it would have a prime divisor $\ell\le\sqrt N$.
+Reduction modulo $\ell$ gives a nonsingular elliptic curve, and $R$ reduces
+to an affine point. This point has order $r$, since it is nonzero and is
+annihilated by the prime $r$. Hasse's bound therefore gives
+\[
+ r\le\#E(\mathbb F_\ell)
+ \le(\sqrt\ell+1)^2
+ \le(N^{1/4}+1)^2,
+\]
+a contradiction.
+\end{proof}
+
+For each endpoint, the certificate is a finite chain of integers $N_i$ and
+tuples $(t_i,s_i,A_i,X_i,Y_i)$, with
+\[
+ N_{i+1}=\frac{N_i+1-t_i}{s_i},\qquad
+ B_i\equiv Y_i^2-X_i^3-A_iX_i\pmod{N_i}.
+\]
+For $0\le i<k$, $N_i>3$, $s_i>0$, and $N_{i+1}$ is an integer.
+At each step we have
+\begin{equation}\label{eq:checks}
+\begin{gathered}
+ \gcd(N_i,6)=\gcd(4A_i^3+27B_i^2,N_i)=1,\\
+ N_{i+1}>(N_i^{1/4}+1)^2,\\
+ R_i=[s_i](X_i,Y_i)\ne O,\qquad [N_{i+1}]R_i=O.
+\end{gathered}
+\end{equation}
+The point $R_i$ is affine and every division in its computation, and in that
+of $[N_{i+1}]R_i$, has denominator coprime to $N_i$. These are exact modular
+arithmetic checks. The two chains have the following endpoints.
+\begin{center}
+\begin{tabular}{l r r}
+\toprule
+Starting integer & Number of steps & Terminal integer\\
+\midrule
+$p$ & $647$ & $77\,611\,968\,613$\\
+$p+122\,290$ & $659$ & $78\,278\,019\,539$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both terminal integers are prime. For a direct order check, their
+factorizations and bases are
+\[
+\begin{array}{rcll}
+77\,611\,968\,613-1&=&2^2\cdot3^4\cdot937\cdot255\,649,&g=6,\\
+78\,278\,019\,539-1&=&2\cdot389\cdot5\,531\cdot18\,191,&g=2.
+\end{array}
+\]
+Every displayed factor is prime by trial division. In each row,
+$g^{N-1}\equiv1\pmod N$ and
+$\gcd(g^{(N-1)/r}-1,N)=1$ for every prime $r\mid N-1$.
+Consequently $g$ has order $N-1$ modulo every prime divisor $\ell$ of $N$,
+so $N-1\mid\ell-1$ and $\ell\ge N$. This proves the claim.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The finite modular checks \eqref{eq:checks}, starting from the two terminal
+primes and applying Lemma~\ref{lem:ecpp} backwards along each chain, prove
+that $p$ and $p+122\,290$ are prime. The covering calculation in Section~1
+proves every intermediate integer composite. Thus the primes are consecutive.
+The decimal representation of $p$ and addition of $122\,290$ give $8\,262$
+digits in both cases.
+\end{proof}
+
+\subsection*{Acknowledgment}
+The authors acknowledge OpenAI's AI systems for assistance with the
+construction, finite arithmetic verification, and preparation of this paper.
+
+\begin{thebibliography}{1}
+\bibitem{atkinmorain}
+A.~O.~L. Atkin and F. Morain,
+\emph{Elliptic curves and primality proving},
+Math. Comp. \textbf{61} (1993), no.~203, 29--68.
+\end{thebibliography}
+
+\appendix
+\section{The starting prime}\label{app:p}
+The decimal expansion of $p$ is displayed below. The lines are concatenated
+and spaces separate blocks of ten digits. The integer $p+122\,290$ is then
+determined by addition.
+\input{paper-digits.tex}
+\end{document}

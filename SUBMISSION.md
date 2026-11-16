@@ -1,10 +1,10 @@
 # Submission status
 
-Authors in order are Jensen Kohlmeyer, Will Howe, Liam Kruer, and Grant Huffman.
+The paper lists Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer in alphabetical order by surname.
 
 ## Prime Gap Records
 
-Accepted on November 16, 2026. The record is 122290, C?D, merit 6.4287, discoverer JKWHLKGH, discovery date November 12, 2026. JKWHLKGH represents the four authors' initials in the eight-character discoverer field.
+Accepted on November 16, 2026. The record is 122290, C?D, merit 6.4287, discoverer JKWHLKGH, discovery date November 12, 2026. JKWHLKGH represents the four authors' initials in the original submission order in the eight-character discoverer field.
 
 [Official acceptance commit](https://github.com/primegap-list-project/prime-gap-list/commit/c26428c613e71ed1e6da5d8f0c9c7eef073b1cb0)
 
@@ -14,4 +14,4 @@ Submitted by email to the published contact team@aitonomy.org on November 16, 20
 
 ## Public package
 
-[Version 1.0 release](https://github.com/JENW1N/prime-gap-122290/releases/tag/v1.0) contains the complete certificate package and research note draft.
+[Current release](https://github.com/JENW1N/prime-gap-122290/releases/latest) contains the revised proof PDF. [Download the paper](https://github.com/JENW1N/prime-gap-122290/releases/latest/download/consecutive-primes-122290-proof.pdf).

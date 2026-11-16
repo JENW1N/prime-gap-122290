@@ -1,4 +1,10 @@
-# A certified consecutive-prime gap of length 122,290
+# Consecutive primes at distance 122,290
+
+**Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer**
+
+[Read the proof PDF](consecutive-primes-122290-proof.pdf) · [Download the paper](https://github.com/JENW1N/prime-gap-122290/releases/latest/download/consecutive-primes-122290-proof.pdf)
+
+The three-page mathematical paper includes the full arithmetic certificate as an embedded appendix, the exact starting prime, author contact emails, and an AI acknowledgment.
 
 This package records two proven 8,262-digit consecutive primes at distance 122,290. Every one of the 122,289 interior integers has a verified prime divisor at most 32,467.
 
@@ -22,7 +28,7 @@ The search optimized admissible residue classes, combined them with the Chinese 
 
 The `search/` directory preserves the final cover, successful-run parameters and checkpoint, and the original optimization and search scripts. These research scripts retain their original Windows/CUDA environment assumptions. Portable verification is available through the command above. Full discovery timing and the historical 7,995-row reference comparison have not been independently repeated during this audit.
 
-The accompanying research note is a draft by Jensen Kohlmeyer, Will Howe, Liam Kruer, and Grant Huffman. It explains the finite proof and algorithm. Prime Gap Records accepted the record on November 16, 2026. The draft has not undergone external mathematical review.
+The accompanying paper gives the covering argument and the elliptic-curve primality criterion. Its authors are ordered alphabetically by surname. Prime Gap Records accepted the record on November 16, 2026. The paper has not undergone external mathematical review.
 
 ## Context
 
@@ -36,4 +42,4 @@ The theorem establishes a specific occurrence. The least occurrence, the prime i
 
 ## Attribution and status
 
-Authors, in the supplied order: Jensen Kohlmeyer, Will Howe, Liam Kruer, and Grant Huffman. The Prime Gap Records team identifier `JKWHLKGH` uses each author's initials to fit its eight-character discoverer field. The work was developed in an AI-assisted Codex workflow. Prime Gap Records lists the result as `122290 6.4287 JKWHLKGH`, with classification `C?D`. Its server reported `Verified! (10.8s)`. See [the live status page](https://primegaps.cloudygo.com/status) and `prime-gap-records-receipt.json`. FrontierShift review is pending.
+Authors in alphabetical order by surname are Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer. The Prime Gap Records team identifier `JKWHLKGH` uses each author's initials to fit its eight-character discoverer field. The work was developed in an AI-assisted Codex workflow. Prime Gap Records lists the result as `122290 6.4287 JKWHLKGH`, with classification `C?D`. Its server reported `Verified! (10.8s)`. See [the live status page](https://primegaps.cloudygo.com/status) and `prime-gap-records-receipt.json`. FrontierShift review is pending.
